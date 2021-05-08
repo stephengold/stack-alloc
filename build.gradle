@@ -1,0 +1,134 @@
+// Gradle build script for stack-alloc Maven artifacts
+
+plugins {
+    id 'java-library'
+    id 'maven-publish'
+    id 'signing'
+}
+
+ext {
+    artifact = 'stack-alloc'
+    version = '1.0.0'
+    baseName = "${artifact}-${version}"
+}
+
+description = 'Allocate Java objects on method stack instead of program heap.'
+
+sourceCompatibility = '1.7'
+targetCompatibility = '1.7'
+
+repositories {
+    //mavenLocal()
+    mavenCentral()
+}
+
+dependencies {
+    implementation 'com.github.stephengold:asm-all:3.1.1'
+    implementation 'org.apache.ant:ant:1.10.10'
+}
+
+tasks.withType(JavaCompile) { // compile-time options:
+    options.compilerArgs << '-Xdiags:verbose'
+    //options.compilerArgs << '-Xlint:unchecked'
+    options.deprecation = true
+    options.encoding = 'UTF-8'
+}
+
+javadoc {
+    // Disable doclint for JDK8+.
+    if (JavaVersion.current().isJava8Compatible()){
+        options.addStringOption('Xdoclint:none', '-quiet')
+    }
+}
+
+// custom tasks for creating source/javadoc JARs
+jar {
+    archiveBaseName = project.ext.baseName
+}
+
+task javadocJar(type: Jar) {
+    archiveBaseName = project.ext.baseName
+    classifier = 'javadoc'
+    dependsOn 'javadoc'
+    description 'Create a JAR of javadoc.'
+    from javadoc.destinationDir
+}
+
+task sourcesJar(type: Jar) {
+    archiveBaseName = project.ext.baseName
+    classifier = 'sources'
+    dependsOn 'classes'
+    description 'Create a JAR of sourcecode.'
+    from sourceSets.main.allJava
+}
+
+build.dependsOn('pom', 'pomAsc')
+task('pom', type: Copy) {
+    dependsOn 'generatePomFileForMavenPublication'
+    from "${buildDir}/publications/maven/pom-default.xml"
+    into "${buildDir}/libs"
+    rename 'pom-default.xml', baseName + '.pom'
+}
+task('pomAsc', type: Copy) {
+    dependsOn 'signMavenPublication'
+    from "${buildDir}/publications/maven/pom-default.xml.asc"
+    into "${buildDir}/libs"
+    rename 'pom-default.xml.asc', baseName + '.pom.asc'
+}
+
+publishing {
+    publications {
+        maven(MavenPublication) {
+            artifact javadocJar
+            artifact sourcesJar
+            artifactId artifact
+            from components.java
+            groupId 'com.github.stephengold'
+            pom {
+                description = project.description
+                developers {
+                    developer {
+                        email = 'jezek2@advel.cz'
+                        name = 'Martin Dvorak'
+                    }
+                }
+                licenses {
+                    license {
+                        distribution = 'repo'
+                        name = 'Zlib License'
+                        url = 'https://opensource.org/licenses/zlib-license.php'
+                    }
+                }
+                name = 'com.github.stephengold:' + artifact
+                scm {
+                    connection = 'scm:git:git://github.com/stephengold/stack-alloc.git'
+                    developerConnection = 'scm:git:ssh://github.com:stephengold/stack-alloc.git'
+                    url = 'https://github.com/stephengold/stack-alloc/tree/master'
+                }
+                url = 'https://github.com/stephengold/stack-alloc'
+            }
+            version project.ext.version
+        }
+    }
+    repositories {
+        maven {
+            credentials {
+                username = project.hasProperty('ossrhUsername') ? ossrhUsername : 'Unknown user'
+                password = project.hasProperty('ossrhPassword') ? ossrhPassword : 'Unknown password'
+            }
+            name = 'OSSRH'
+            url = 'https://oss.sonatype.org/service/local/staging/deploy/maven2'
+        }
+    }
+}
+generateMetadataFileForMavenPublication.dependsOn('pom')
+publishToMavenLocal.doLast {
+    println 'published to ' + baseName
+}
+
+signing {
+    sign publishing.publications.maven
+}
+tasks.withType(Sign) {
+    onlyIf { gradle.rootProject.hasProperty('signing.keyId') }
+}
