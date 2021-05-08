@@ -107,9 +107,9 @@ public class InstrumentationTask extends Task {
 		try {
 			List<File> files = new ArrayList<File>();
 			for (FileSet fs : fileSets) {
-				String[] fileNames = fs.getDirectoryScanner().getIncludedFiles();
+				String[] fileNames = fs.getDirectoryScanner(getProject()).getIncludedFiles();
 				for (String fname : fileNames) {
-					File file = new File(fs.getDir(), fname);
+					File file = new File(fs.getDir(getProject()), fname);
 					if (file.getName().endsWith(".class")) {
 						files.add(file);
 					}

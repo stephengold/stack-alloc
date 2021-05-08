@@ -20,7 +20,6 @@
 
 package cz.advel.stack;
 
-import cz.advel.stack.instrument.InstrumentationTask;
 import java.lang.ref.WeakReference;
 import java.util.ArrayList;
 import java.util.Iterator;
@@ -149,8 +148,6 @@ public class Stack {
 	 * Removes all cached stack instances for current thread in current library.<p>
 	 * 
 	 * Requires instrumentation of your classes in order to work.
-	 * 
-	 * @see InstrumentationTask#setIsolated(boolean)
 	 */
 	public static void libraryCleanCurrentThread() {
 		throw new Error("not instrumented");
