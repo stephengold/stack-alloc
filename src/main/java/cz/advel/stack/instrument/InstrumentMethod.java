@@ -69,6 +69,7 @@ class InstrumentMethod extends MethodNode {
 	}
 
 	@Override
+        @SuppressWarnings("unchecked")
 	public void visitEnd() {
 		try {
 			// always disable stack allocation in suspendable methods:
