@@ -7,6 +7,7 @@ plugins {
 }
 
 ext {
+    group = 'com.github.stephengold'
     artifact = 'stack-alloc'
     version = '1.0.1'
     baseName = "${artifact}-${version}"
@@ -84,7 +85,7 @@ publishing {
             artifact sourcesJar
             artifactId artifact
             from components.java
-            groupId 'com.github.stephengold'
+            groupId project.ext.group
             pom {
                 description = project.description
                 developers {
@@ -100,7 +101,7 @@ publishing {
                         url = 'https://opensource.org/licenses/zlib-license.php'
                     }
                 }
-                name = 'com.github.stephengold:' + artifact
+                name = project.ext.group + ':' + artifact
                 scm {
                     connection = 'scm:git:git://github.com/stephengold/stack-alloc.git'
                     developerConnection = 'scm:git:ssh://github.com:stephengold/stack-alloc.git'
