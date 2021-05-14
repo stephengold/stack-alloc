@@ -41,7 +41,8 @@ javadoc {
     }
 }
 
-// custom tasks for creating source/javadoc JARs
+// publishing tasks
+
 jar {
     archiveBaseName = project.ext.baseName
 }
@@ -125,6 +126,8 @@ generateMetadataFileForMavenPublication.dependsOn('pom')
 publishToMavenLocal.doLast {
     println 'published to ' + baseName
 }
+
+// signing tasks
 
 signing {
     sign publishing.publications.maven
