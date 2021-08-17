@@ -28,7 +28,7 @@ import org.objectweb.asm.*;
  */
 class CheckMethod implements MethodVisitor {
 
-	private Instrumenter instr;
+	final private Instrumenter instr;
 
 	public CheckMethod(Instrumenter instr) {
 		this.instr = instr;

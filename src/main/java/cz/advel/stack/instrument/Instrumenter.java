@@ -43,19 +43,19 @@ class Instrumenter {
 	
 	static final String STACK_NAME = Type.getInternalName(Stack.class);
 	
-	private List<File> files;
-	private File destDir;
-	private String stackPackageName;
-	private String stackInternalName;
+	final private List<File> files;
+	final private File destDir;
+	final private String stackPackageName;
+	final private String stackInternalName;
 	
 	private boolean disabled = false;
 	private boolean singleThread = false;
 	private boolean isolated = false;
 	
-	private Set<String> stackTypes = new HashSet<>();
+	final private Set<String> stackTypes = new HashSet<>();
 	private File currentFile;
 	private String currentMethod;
-	private Map<File,Set<String>> classMethods = new LinkedHashMap<>();
+	final private Map<File,Set<String>> classMethods = new LinkedHashMap<>();
 
 	public Instrumenter(List<File> files, File destDir, String stackPackageName) {
 		this.files = files;

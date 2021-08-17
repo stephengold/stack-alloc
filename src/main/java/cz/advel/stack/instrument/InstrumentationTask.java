@@ -51,7 +51,7 @@ import org.apache.tools.ant.types.FileSet;
  */
 public class InstrumentationTask extends Task {
 	
-	private List<FileSet> fileSets = new ArrayList<>();
+	final private List<FileSet> fileSets = new ArrayList<>();
 	private File destDir;
 	private String stackPackageName;
 	private boolean disabled = false;

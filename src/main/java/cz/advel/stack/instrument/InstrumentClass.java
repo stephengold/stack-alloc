@@ -37,14 +37,14 @@ import org.objectweb.asm.tree.TypeInsnNode;
  */
 class InstrumentClass extends ClassAdapter {
 	
-	private Instrumenter instr;
-	private Set<String> methods;
+	final private Instrumenter instr;
+	final private Set<String> methods;
 	private String className;
 	
 	private boolean disableMethodInstrumentation = false;
 	private MethodNode clinitMethod;
 	
-	private List<String> tempStaticFields = new ArrayList<>();
+	final private List<String> tempStaticFields = new ArrayList<>();
 
 	public InstrumentClass(ClassVisitor cv, Instrumenter instr, Set<String> methods) {
 		super(cv);

@@ -38,18 +38,18 @@ import org.objectweb.asm.tree.analysis.*;
  */
 class InstrumentMethod extends MethodNode {
 
-	private static String STACK_NAME = Type.getInternalName(Stack.class);
-	private static String STACK_ALLOC_CLASS_DESC = Type.getMethodDescriptor(Type.getType(Object.class), new Type[] { Type.getType(Class.class) } );
-	private static String STACK_ALLOC_OBJECT_DESC = Type.getMethodDescriptor(Type.getType(Object.class), new Type[] { Type.getType(Object.class) } );
-	private static String STATIC_ALLOC_DESC = Type.getDescriptor(StaticAlloc.class);
+	final private static String STACK_NAME = Type.getInternalName(Stack.class);
+	final private static String STACK_ALLOC_CLASS_DESC = Type.getMethodDescriptor(Type.getType(Object.class), new Type[] { Type.getType(Class.class) } );
+	final private static String STACK_ALLOC_OBJECT_DESC = Type.getMethodDescriptor(Type.getType(Object.class), new Type[] { Type.getType(Object.class) } );
+	final private static String STATIC_ALLOC_DESC = Type.getDescriptor(StaticAlloc.class);
 
 	// Matthias Mann's Continuations library, see: http://www.matthiasmann.de/content/view/24/26/
-	private static String CONTINUATIONS_SUSPEND_EXECUTION_NAME = "de/matthiasmann/continuations/SuspendExecution";
+	final private static String CONTINUATIONS_SUSPEND_EXECUTION_NAME = "de/matthiasmann/continuations/SuspendExecution";
 
-	private Instrumenter instr;
-	private InstrumentClass inscls;
-	private String className;
-	private ClassVisitor cv;
+	final private Instrumenter instr;
+	final private InstrumentClass inscls;
+	final private String className;
+	final private ClassVisitor cv;
 
 	private List<Frame> frames;
 

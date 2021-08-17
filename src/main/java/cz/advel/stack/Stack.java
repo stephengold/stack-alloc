@@ -92,7 +92,7 @@ import java.util.List;
  */
 public class Stack {
 	
-	private static List<WeakReference<ThreadLocal>> threadLocalList = new ArrayList<WeakReference<ThreadLocal>>();
+	final private static List<WeakReference<ThreadLocal>> threadLocalList = new ArrayList<WeakReference<ThreadLocal>>();
 	
 	private Stack() {
 	}

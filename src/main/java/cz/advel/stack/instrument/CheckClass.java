@@ -31,8 +31,8 @@ class CheckClass implements ClassVisitor {
 
 	public static EmptyVisitor EMPTY_VISITOR = new EmptyVisitor();
 	
-	private Instrumenter instr;
-	private CheckMethod methodVisitor;
+	final private Instrumenter instr;
+	final private CheckMethod methodVisitor;
 
 	public CheckClass(Instrumenter instr) {
 		this.instr = instr;
