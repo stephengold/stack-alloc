@@ -25,6 +25,13 @@ import org.objectweb.asm.*;
 
 class StackGenerator implements Opcodes {
 	
+	/**
+	 * A private constructor to inhibit instantiation of this class.
+	 */
+	private StackGenerator() {
+		// do nothing
+	}
+
 	private static int getParentDistance(Class concrete, Class parent) {
 		int cnt = 0;
 		while (concrete != null) {
