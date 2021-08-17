@@ -44,7 +44,7 @@ class InstrumentClass extends ClassAdapter {
 	private boolean disableMethodInstrumentation = false;
 	private MethodNode clinitMethod;
 	
-	private List<String> tempStaticFields = new ArrayList<String>();
+	private List<String> tempStaticFields = new ArrayList<>();
 
 	public InstrumentClass(ClassVisitor cv, Instrumenter instr, Set<String> methods) {
 		super(cv);

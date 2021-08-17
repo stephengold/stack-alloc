@@ -125,7 +125,7 @@ public class Stack {
 	 * Used internally.
 	 */
 	public static synchronized void internalRegisterThreadLocal(ThreadLocal local) {
-		threadLocalList.add(new WeakReference<ThreadLocal>(local));
+		threadLocalList.add(new WeakReference<>(local));
 	}
 	
 	/**

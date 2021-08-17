@@ -51,7 +51,7 @@ import org.apache.tools.ant.types.FileSet;
  */
 public class InstrumentationTask extends Task {
 	
-	private List<FileSet> fileSets = new ArrayList<FileSet>();
+	private List<FileSet> fileSets = new ArrayList<>();
 	private File destDir;
 	private String stackPackageName;
 	private boolean disabled = false;
@@ -105,7 +105,7 @@ public class InstrumentationTask extends Task {
 	@Override
 	public void execute() throws BuildException {
 		try {
-			List<File> files = new ArrayList<File>();
+			List<File> files = new ArrayList<>();
 			for (FileSet fs : fileSets) {
 				String[] fileNames = fs.getDirectoryScanner(getProject()).getIncludedFiles();
 				for (String fname : fileNames) {

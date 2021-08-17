@@ -52,10 +52,10 @@ class Instrumenter {
 	private boolean singleThread = false;
 	private boolean isolated = false;
 	
-	private Set<String> stackTypes = new HashSet<String>();
+	private Set<String> stackTypes = new HashSet<>();
 	private File currentFile;
 	private String currentMethod;
-	private Map<File,Set<String>> classMethods = new LinkedHashMap<File,Set<String>>();
+	private Map<File,Set<String>> classMethods = new LinkedHashMap<>();
 
 	public Instrumenter(List<File> files, File destDir, String stackPackageName) {
 		this.files = files;
@@ -167,7 +167,7 @@ class Instrumenter {
 	void addInstrumentMethod() {
 		Set<String> methods = classMethods.get(currentFile);
 		if (methods == null) {
-			methods = new HashSet<String>();
+			methods = new HashSet<>();
 			classMethods.put(currentFile, methods);
 		}
 		

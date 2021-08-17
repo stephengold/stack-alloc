@@ -98,9 +98,9 @@ class InstrumentMethod extends MethodNode {
 
 			Analyzer analyzer = new Analyzer(new SimpleVerifier());
 			analyzer.analyze(className, this);
-			frames = new ArrayList<Frame>(Arrays.asList(analyzer.getFrames()));
+			frames = new ArrayList<>(Arrays.asList(analyzer.getFrames()));
 
-			Set<String> usedTypes = new HashSet<String>();
+			Set<String> usedTypes = new HashSet<>();
 			boolean createStack = false;
 
 			AbstractInsnNode insn = instructions.getFirst();
