@@ -73,6 +73,8 @@ public class InstrumentationTask extends Task {
 	/**
 	 * If true, stack allocation is disabled and every occurence of Stack.alloc()
 	 * methods are replaced by direct object allocation.
+         *
+         * @param b true for direct object allocation, false for stack allocation
 	 */
 	public void setDisabled(boolean b) {
 		disabled = b;
@@ -82,6 +84,8 @@ public class InstrumentationTask extends Task {
 	 * Sets single thread mode. If enabled, stack is accessed using static field
 	 * instead of ThreadLocal. Gives some performance boost if you don't run in
 	 * more then one thread.
+         * 
+         * @param b true to enable single-thread mode, false to disable it
 	 */
 	public void setSingleThread(boolean b) {
 		singleThread = b;
@@ -97,6 +101,8 @@ public class InstrumentationTask extends Task {
 	 * Library author(s) should provide their own method for cleaning resources for
 	 * current thread (possibly also cleaning other resources). See
 	 * {@link Stack#libraryCleanCurrentThread} method.
+         *
+         * @param isolated true to avoid JStackAlloc dependency
 	 */
 	public void setIsolated(boolean isolated) {
 		this.isolated = isolated;

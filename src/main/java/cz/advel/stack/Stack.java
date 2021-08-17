@@ -102,6 +102,7 @@ public class Stack {
 	 * 
 	 * Requires instrumentation of your classes in order to work.
 	 * 
+         * @param <T> the type of object to allocate
 	 * @param cls class type, must be compile-time constant
 	 * @return stack allocated instance of given class
 	 */
@@ -114,6 +115,7 @@ public class Stack {
 	 * 
 	 * Requires instrumentation of your classes in order to work.
 	 * 
+         * @param <T> the type of object to allocate
 	 * @param obj object to copy on stack, the type must be statically known
 	 * @return stack allocated instance with copied data
 	 */
@@ -123,6 +125,8 @@ public class Stack {
 	
 	/**
 	 * Used internally.
+         *
+         * @param local
 	 */
 	public static synchronized void internalRegisterThreadLocal(ThreadLocal local) {
 		threadLocalList.add(new WeakReference<>(local));
