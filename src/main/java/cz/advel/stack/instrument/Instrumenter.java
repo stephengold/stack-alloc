@@ -95,8 +95,12 @@ class Instrumenter {
 		File stackFile = new File(destDir, getStackInternalName() + ".class");
 		
 		for (File file : files) {
-			if (file.equals(stackFile)) continue;
-			if (!file.getName().endsWith(".class")) continue;
+			if (file.equals(stackFile)) {
+                            continue;
+                        }
+			if (!file.getName().endsWith(".class")) {
+                            continue;
+                        }
 			
 			currentFile = file;
 			FileInputStream in = new FileInputStream(file);

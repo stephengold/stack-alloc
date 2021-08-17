@@ -115,10 +115,12 @@ class InstrumentMethod extends MethodNode {
 						Type type = null;
 
                         // GS: Java 8's compiler introduces LineNumberNode and LabelNode between LdcInsnNode and MethodInsnNode, skip them
-                        if (insnBefore instanceof LineNumberNode)
+                        if (insnBefore instanceof LineNumberNode) {
                           insnBefore = insnBefore.getPrevious();
-                        if (insnBefore instanceof LabelNode)
+                        }
+                        if (insnBefore instanceof LabelNode) {
                           insnBefore = insnBefore.getPrevious();
+                        }
 
 						if (insnBefore instanceof LdcInsnNode && ((LdcInsnNode)insnBefore).cst instanceof Type) {
 							type = (Type)((LdcInsnNode)insnBefore).cst;
