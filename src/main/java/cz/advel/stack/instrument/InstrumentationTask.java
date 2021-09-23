@@ -58,14 +58,29 @@ public class InstrumentationTask extends Task {
 	private boolean singleThread = false;
 	private boolean isolated = false;
 	
+	/**
+	 * Add a FileSet to the list.
+	 *
+	 * @param fs the FileSet to add
+	 */
 	public void addFileSet(FileSet fs) {
 		fileSets.add(fs);
 	}
 
+	/**
+	 * Alter the destination directory.
+	 *
+	 * @param destDir the desired directory
+	 */
 	public void setDest(File destDir) {
 		this.destDir = destDir;
 	}
 
+	/**
+	 * Alter the package name.
+	 *
+	 * @param packageName the desired name
+	 */
 	public void setPackageName(String packageName) {
 		this.stackPackageName = packageName;
 	}
