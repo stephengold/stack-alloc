@@ -1,4 +1,4 @@
-// Gradle build script for stack-alloc Maven artifacts
+// Gradle build script for the stack-alloc project
 
 plugins {
     id 'java-library'
@@ -11,6 +11,7 @@ ext {
     artifact = 'stack-alloc'
     version = '1.0.1'
     baseName = "${artifact}-${version}"
+    websiteUrl = 'https://github.com/stephengold/stack-alloc'
 }
 
 description = 'Allocate Java objects on method stack instead of program heap.'
@@ -114,9 +115,9 @@ publishing {
                 scm {
                     connection = 'scm:git:git://github.com/stephengold/stack-alloc.git'
                     developerConnection = 'scm:git:ssh://github.com:stephengold/stack-alloc.git'
-                    url = 'https://github.com/stephengold/stack-alloc/tree/master'
+                    url = project.ext.websiteUrl + '/tree/master'
                 }
-                url = 'https://github.com/stephengold/stack-alloc'
+                url = project.ext.websiteUrl
             }
             version project.ext.version
         }
