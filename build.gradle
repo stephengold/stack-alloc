@@ -135,8 +135,8 @@ publishing {
     }
 }
 generateMetadataFileForMavenPublication.dependsOn('pom')
-publishToMavenLocal.doLast {
-    println 'published to ' + baseName
+publishMavenPublicationToMavenLocal.doLast {
+    println 'installed locally as ' + project.ext.baseName
 }
 
 // signing tasks
