@@ -21,7 +21,8 @@
 package cz.advel.stack.instrument;
 
 import cz.advel.stack.Stack;
-import java.io.*;
+import java.io.File;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 import org.apache.tools.ant.BuildException;
