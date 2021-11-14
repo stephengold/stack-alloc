@@ -50,7 +50,7 @@ class InstrumentClass extends ClassAdapter {
 	
 	final private List<String> tempStaticFields = new ArrayList<>();
 
-	public InstrumentClass(ClassVisitor cv, Instrumenter instr, Set<String> methods) {
+	InstrumentClass(ClassVisitor cv, Instrumenter instr, Set<String> methods) {
 		super(cv);
 		this.instr = instr;
 		this.methods = methods;

@@ -76,7 +76,7 @@ class InstrumentMethod extends MethodNode {
 
 	boolean emitMethod = true;
 
-	public InstrumentMethod(int access, String name, String desc, String signature, String[] exceptions, Instrumenter instr, InstrumentClass inscls, String className, ClassVisitor cv) {
+	InstrumentMethod(int access, String name, String desc, String signature, String[] exceptions, Instrumenter instr, InstrumentClass inscls, String className, ClassVisitor cv) {
 		super(access, name, desc, signature, exceptions);
 		this.instr = instr;
 		this.inscls = inscls;

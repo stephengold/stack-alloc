@@ -38,7 +38,7 @@ class CheckClass implements ClassVisitor {
 	final private Instrumenter instr;
 	final private CheckMethod methodVisitor;
 
-	public CheckClass(Instrumenter instr) {
+	CheckClass(Instrumenter instr) {
 		this.instr = instr;
 		methodVisitor = new CheckMethod(instr);
 	}

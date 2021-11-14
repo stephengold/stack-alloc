@@ -57,7 +57,7 @@ class Instrumenter {
 	private String currentMethod;
 	final private Map<File,Set<String>> classMethods = new LinkedHashMap<>();
 
-	public Instrumenter(List<File> files, File destDir, String stackPackageName) {
+	Instrumenter(List<File> files, File destDir, String stackPackageName) {
 		this.files = files;
 		this.destDir = destDir;
 		this.stackPackageName = stackPackageName;

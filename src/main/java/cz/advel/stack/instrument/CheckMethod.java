@@ -35,7 +35,7 @@ class CheckMethod implements MethodVisitor {
 
 	final private Instrumenter instr;
 
-	public CheckMethod(Instrumenter instr) {
+	CheckMethod(Instrumenter instr) {
 		this.instr = instr;
 	}
 
