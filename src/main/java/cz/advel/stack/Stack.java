@@ -27,7 +27,7 @@ import java.util.List;
 
 /**
  * Support for stack allocation of "value" objects. The only requirements for "value"
- * objects is that they must have public zero argument constructor and <code>set</code>
+ * objects is that they must have public zero argument constructor and {@code set}
  * method with one argument of the same type (or superclass) which copies data from
  * given instance.<p>
  * 
@@ -84,7 +84,7 @@ import java.util.List;
  *     which is fine, because the values are used between them without problem
  * <li>when creating and destroying threads you must be aware that the implementation
  *     uses ThreadLocal to persist stack instances between method calls, it's advisable
- *     to call <code>cleanCurrentThread</code> method on thread just before destroying
+ *     to call {@code cleanCurrentThread} method on thread just before destroying
  * </li>
  * </ul>
  * 
