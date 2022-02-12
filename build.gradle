@@ -6,7 +6,6 @@ plugins {
     id 'signing'
 }
 
-description = 'Allocate Java objects on method stack instead of program heap.'
 ext {
     group = 'com.github.stephengold'
     artifact = 'stack-alloc'
