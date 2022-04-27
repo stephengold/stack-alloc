@@ -14,6 +14,6 @@ The instrumentation package depends on:
 
 ## External links
 + Original project announcement and discussion:  https://jvm-gaming.org/t/jstackalloc-stack-allocation-of-value-objects-in-java/31983
-+ Pre-built Maven artifacts at the Maven Central Repository:  https://search.maven.org/artifact/com.github.stephengold/stack-alloc/1.0.1/jar
++ Pre-built Maven artifacts at the Maven Central Repository:  https://search.maven.org/artifact/com.github.stephengold/stack-alloc
 + Gradle project to build the "asm-all" library:  https://github.com/stephengold/asm
 + The Apache Ant project:  https://ant.apache.org/
