@@ -60,6 +60,13 @@ public class InstrumentationTask extends Task {
 	private boolean isolated = false;
 	
 	/**
+	 * A no-arg constructor to avoid javadoc warnings from JDK 18.
+	 */
+	public InstrumentationTask() {
+		// do nothing
+	}
+
+	/**
 	 * Add a FileSet to the list.
 	 *
 	 * @param fs the FileSet to add
