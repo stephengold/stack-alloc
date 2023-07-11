@@ -14,8 +14,10 @@ ext {
     websiteUrl = 'https://github.com/stephengold/stack-alloc'
 }
 
-sourceCompatibility = JavaVersion.VERSION_1_7
-targetCompatibility = JavaVersion.VERSION_1_7
+java {
+    sourceCompatibility = JavaVersion.VERSION_1_7
+    targetCompatibility = JavaVersion.VERSION_1_7
+}
 
 dependencies {
     implementation 'com.github.stephengold:asm-all:3.1.1'
