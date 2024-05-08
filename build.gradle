@@ -1,9 +1,9 @@
-// Gradle build script for the stack-alloc project
+// Gradle script to build the stack-alloc project
 
 plugins {
-    id 'java-library'
-    id 'maven-publish'
-    id 'signing'
+    id 'java-library'  // to build a JVM library
+    id 'maven-publish' // to publish artifacts to Maven repositories
+    id 'signing'       // to sign artifacts for publication
 }
 
 ext {
@@ -38,7 +38,7 @@ tasks.withType(JavaCompile).configureEach { // Java compile-time options:
     }
 }
 
-// publishing tasks:
+// Register publishing tasks:
 
 tasks.register('install') {
     dependsOn 'publishMavenPublicationToMavenLocal'
@@ -157,7 +157,7 @@ publishMavenPublicationToMavenLocal.doLast {
 }
 publishMavenPublicationToOSSRHRepository.dependsOn('assemble')
 
-// signing tasks:
+// Register signing tasks:
 
 // Signing relies on the existence of 3 properties
 // (signing.keyId, signing.password, and signing.secretKeyRingFile)
