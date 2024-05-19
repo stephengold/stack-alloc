@@ -1,7 +1,7 @@
 // Gradle script to build the stack-alloc project
 
 plugins {
-    id 'java-library'  // to build a JVM library
+    id 'java-library'  // to build JVM libraries
     id 'maven-publish' // to publish artifacts to Maven repositories
     id 'signing'       // to sign artifacts for publication
 }
@@ -63,7 +63,7 @@ tasks.register('sourcesJar', Jar) {
     archiveBaseName = project.ext.baseName
     archiveClassifier = 'sources'
     description 'Creates a JAR of sourcecode.'
-    from sourceSets.main.allJava
+    from sourceSets.main.allJava // default is ".allSource", which includes resources
 }
 
 assemble.dependsOn('module', 'moduleAsc', 'pom', 'pomAsc')
