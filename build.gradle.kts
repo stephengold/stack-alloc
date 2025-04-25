@@ -112,10 +112,11 @@ publishing {
             from(components["java"])
             groupId = group
             pom {
-                description = project.description
+                description = "Allocate Java objects on method stack instead of program heap."
                 developers {
                     developer {
                         email = "jezek2@advel.cz"
+                        id = "jezek2"
                         name = "Martin Dvorak"
                     }
                 }
