@@ -21,7 +21,7 @@ java {
 
 dependencies {
     implementation("com.github.stephengold:asm-all:3.1.1")
-    implementation("org.apache.ant:ant:1.10.14")
+    implementation("org.apache.ant:ant:1.10.15")
 }
 
 tasks.withType<JavaCompile>().all { // Java compile-time options:
