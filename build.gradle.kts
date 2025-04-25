@@ -5,7 +5,7 @@ plugins {
     `maven-publish` // to publish artifacts to Maven repositories
     `signing`       // to sign artifacts for publication
 
-    id("io.freefair.maven-central.validate-poms") version "8.13.1"
+    alias(libs.plugins.validate.poms) // to verify POMs provide all info required by Maven Central
 }
 
 val group = "com.github.stephengold"
@@ -22,8 +22,8 @@ java {
 }
 
 dependencies {
-    implementation("com.github.stephengold:asm-all:3.1.1")
-    implementation("org.apache.ant:ant:1.10.15")
+    implementation(libs.ant)
+    implementation(libs.asm.all)
 }
 
 tasks.withType<JavaCompile>().all { // Java compile-time options:

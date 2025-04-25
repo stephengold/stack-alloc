@@ -1,0 +1,14 @@
+## catalog of libraries and plugins used to build the stack-alloc Project
+
+[versions]
+
+[libraries]
+
+ant = "org.apache.ant:ant:1.10.15"
+asm-all = "com.github.stephengold:asm-all:3.1.1"
+
+[bundles]
+
+[plugins]
+
+validate-poms = { id = "io.freefair.maven-central.validate-poms", version = "8.13.1" }
