@@ -4,6 +4,8 @@ plugins {
     `java-library`  // to build JVM libraries
     `maven-publish` // to publish artifacts to Maven repositories
     `signing`       // to sign artifacts for publication
+
+    id("io.freefair.maven-central.validate-poms") version "8.13.1"
 }
 
 val group = "com.github.stephengold"
