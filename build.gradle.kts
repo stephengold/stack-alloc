@@ -3,7 +3,7 @@
 plugins {
     `java-library`  // to build JVM libraries
     `maven-publish` // to publish artifacts to Maven repositories
-    `signing`       // to sign artifacts for publication
+    signing         // to sign artifacts for publication
 
     alias(libs.plugins.validate.poms) // to verify POMs provide all info required by Maven Central
 }
