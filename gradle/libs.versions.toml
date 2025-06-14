@@ -10,5 +10,3 @@ asm-all = "com.github.stephengold:asm-all:3.1.1"
 [bundles]
 
 [plugins]
-
-validate-poms = { id = "io.freefair.maven-central.validate-poms", version = "8.13.1" }
