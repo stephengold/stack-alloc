@@ -10,9 +10,9 @@ val group = "com.github.stephengold"
 val artifact = "stack-alloc"
 val libraryVersion = "1.0.3-SNAPSHOT"
 val baseName = "${artifact}-${libraryVersion}" // for artifacts
-val websiteUrl = "https://github.com/stephengold/stack-alloc"
 val javaVendor = System.getProperty("java.vendor")
 val javaVersion = JavaVersion.current()
+val websiteUrl = "https://github.com/stephengold/stack-alloc"
 
 java {
     sourceCompatibility = JavaVersion.VERSION_1_7
