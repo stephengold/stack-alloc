@@ -5,25 +5,14 @@ name: CI at GitHub
 on: [push]
 
 jobs:
-  Java8-Linux:
+  Java17-Linux:
     if: contains(toJson(github.event.commits), '[ci skip] ') == false
     runs-on: ubuntu-slim
     steps:
       - uses: actions/setup-java@v5
         with:
           distribution: 'zulu'
-          java-version: 8
-      - uses: actions/checkout@v6
-      - run: ./gradlew build install --console=plain --stacktrace
-
-  Java11-Linux:
-    if: contains(toJson(github.event.commits), '[ci skip] ') == false
-    runs-on: ubuntu-slim
-    steps:
-      - uses: actions/setup-java@v5
-        with:
-          distribution: 'zulu'
-          java-version: 11
+          java-version: 17
       - uses: actions/checkout@v6
       - uses: gradle/actions/wrapper-validation@v5
       - run: ./gradlew build install --console=plain --stacktrace
