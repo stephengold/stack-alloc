@@ -24,7 +24,7 @@ dependencies {
     implementation(libs.asm.all)
 }
 
-tasks.withType<JavaCompile>().all { // Java compile-time options:
+tasks.withType<JavaCompile>().configureEach { // Java compile-time options:
     options.compilerArgs.add("-Xdiags:verbose")
     if (javaVersion.isCompatibleWith(JavaVersion.VERSION_14)) {
         // Suppress warnings that source value 7 is obsolete.
@@ -38,7 +38,7 @@ tasks.withType<JavaCompile>().all { // Java compile-time options:
     }
 }
 
-configurations.all {
+configurations.configureEach {
     resolutionStrategy.cacheChangingModulesFor(0, "seconds") // to disable caching of snapshots
 }
 
@@ -168,7 +168,7 @@ tasks.named("publishMavenPublicationToCentralRepository") { dependsOn("assemble"
 signing {
     sign(publishing.publications["maven"])
 }
-tasks.withType<Sign>().all {
+tasks.withType<Sign>().configureEach {
     onlyIf { project.hasProperty("signing.keyId") }
 }
 tasks.named("signMavenPublication") { dependsOn("module") }
