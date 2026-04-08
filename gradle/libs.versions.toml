@@ -4,7 +4,7 @@
 
 [libraries]
 
-ant = "org.apache.ant:ant:1.10.15"
+ant = "org.apache.ant:ant:1.10.16"
 asm-all = "com.github.stephengold:asm-all:3.1.1"
 
 [bundles]
